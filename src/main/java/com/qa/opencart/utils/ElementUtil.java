@@ -22,6 +22,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.opencart.exception.FrameworkException;
 
+import io.qameta.allure.Step;
+
 public class ElementUtil {
 
 	private WebDriver driver;
@@ -279,7 +281,7 @@ public class ElementUtil {
 	}
 	
 
-	
+	@Step("waiting for page title :{0} and timeout:{1}")
 	public  String waitFortitleIs(String titleFraction,int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         try {
