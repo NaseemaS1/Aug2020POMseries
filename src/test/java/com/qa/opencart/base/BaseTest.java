@@ -2,6 +2,8 @@ package com.qa.opencart.base;
 
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -26,15 +28,18 @@ public class BaseTest {
     protected productInfoPage ProductInfoPage;
     protected RegisterPage registerPage;
     
+    private static final Logger log = LogManager.getLogger(BaseTest.class);
     protected SoftAssert softAssert;
-    @Parameters({"browser","browserversion"})
+    @Parameters({"browser","browserversion","testname"})
 	@BeforeTest
-	public void setup(String browserName,String browserversion) {
+	public void setup(String browserName,String browserversion,String testName) {
+    	log.info(browserName+" : "+browserversion+" "+testName);
 		df = new DriverFactory();
 		prop=df.initprop();
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
 			prop.setProperty("browserversion", browserversion);
+			prop.setProperty("testName", testName);
 		}
 		driver = df.initDriver(prop);
 		loginpage=new Login(driver);
@@ -44,5 +49,6 @@ public class BaseTest {
 	@AfterTest
 	public void tearDown() {
 		driver.quit();
+		log.info("browser is closed");
 	}
 }

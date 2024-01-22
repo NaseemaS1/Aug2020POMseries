@@ -1,0 +1,16 @@
+2024-01-22 14:29:10 INFO  BaseTest:36 - chrome : 117.0 Login Page Test
+2024-01-22 14:29:10 INFO  DriverFactory:141 - Environment name is: null
+2024-01-22 14:29:10 INFO  DriverFactory:145 - Your environment is null, so by default running tests in qa..
+2024-01-22 14:29:10 INFO  DriverFactory:147 - java.io.FileInputStream@7288a01b
+2024-01-22 14:29:10 INFO  DriverFactory:40 - Browser name is:chrome
+2024-01-22 14:29:10 INFO  DriverFactory:47 - Running it on chrome browser....
+2024-01-22 14:29:10 INFO  DriverFactory:55 - running it on local
+2024-01-22 14:29:20 INFO  Login:43 - Login page TitleAccount Login
+2024-01-22 14:29:20 INFO  LoginPageTest:32 - Actual login page title:Account Login
+2024-01-22 14:29:20 INFO  Login:53 - Login page urlhttps://naveenautomationlabs.com/opencart/index.php?route=account/login
+2024-01-22 14:29:21 INFO  Login:69 - Credentials are:Karishma@opencart.com:Kari@123
+2024-01-22 14:29:21 INFO  ElementUtil:91 - locator :By.id: input-password----value----Kari@123
+2024-01-22 14:29:21 INFO  ElementUtil:87 - locator :By.id: input-password
+2024-01-22 14:29:21 INFO  ElementUtil:87 - locator :By.xpath: //input[@value='Login']
+2024-01-22 14:29:21 INFO  ElementUtil:87 - locator :By.xpath: //input[@value='Login']
+2024-01-22 14:29:23 INFO  BaseTest:52 - browser is closed

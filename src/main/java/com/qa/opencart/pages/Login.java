@@ -1,9 +1,12 @@
 package com.qa.opencart.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.opencart.constants.AppConstants;
+
 import com.qa.opencart.utils.ElementUtil;
 
 import io.qameta.allure.Step;
@@ -22,6 +25,9 @@ public class Login {
 	private By Logo = By.xpath("//img[@title='naveenopencart']");
 	private By registerLink = By.linkText("Register");
 
+	private static final Logger log = LogManager.getLogger(Login.class);
+
+	
 	// page const..
 	public Login(WebDriver driver) {
 		this.driver = driver;
@@ -33,7 +39,8 @@ public class Login {
 	public String getPageTitle() {
 
 		String title = eleUtil.waitFortitleIs(AppConstants.LOGIN_PAGE_TITLE, AppConstants.SHORT_DEFAUTT_WAIT);
-		System.out.println("Login page Title" + title);
+		//System.out.println("Login page Title" + title);
+		log.info("Login page Title" +title);
 		return title;
 	}
 
@@ -42,7 +49,8 @@ public class Login {
 
 		String Url = eleUtil.waitForURLContains(AppConstants.LOGIN_PAGE_URL_FRACTION, AppConstants.SHORT_DEFAUTT_WAIT);
 
-		System.out.println("Login page url" + Url);
+		//System.out.println("Login page url" + Url);
+		log.info("Login page url" +Url);
 		return Url;
 	}
 	@Step("checking forgot pwd link exist")
@@ -57,7 +65,8 @@ public class Login {
 	@Step("username is : {0} and password {1}")
 	public AccoutsPage doLogin(String username, String password) {
 
-		System.out.println("Credentials are:" + username + ":" + password);
+		//System.out.println("Credentials are:" + username + ":" + password);
+		log.info("Credentials are:" + username + ":" + password);
 		eleUtil.waitForVisibilityOfElement(UserName, AppConstants.MEDIUM_DEFAUTT_WAIT).sendKeys(username);
 		eleUtil.doSendKeys(Password, password);
 		eleUtil.doclick(LoginBtn);
